@@ -22,6 +22,7 @@ Route::middleware('auth')->group(function() {
             Route::group(['prefix' => '/admin', 'as' => 'admin.'], function() {
                 Route::resource('/product', ProductController::class);
             });
+            Route::get('/completed/{order}', [OrderController::class, 'completed'])->name('completed');
         });
 
         Route::group(['prefix' => '/order', 'as' => 'order.'], function() {
@@ -29,6 +30,8 @@ Route::middleware('auth')->group(function() {
             Route::post('/basket', [OrderController::class, 'basketPost']);
             Route::get('/addBasket', [OrderController::class, 'addBasket'])->name('addBasket');
             Route::post('/createOrder', [OrderController::class, 'createOrder'])->name('createOrder');
+            Route::get('/all/{myOrder?}', [OrderController::class, 'orders'])->name('all');
+            Route::get('/cancel/{order}', [OrderController::class, 'cancel'])->name('cancel');
         });
     });
 

@@ -30,7 +30,7 @@
                         </li>
                     @endguest
                     @auth
-                        <li class="nav-item"><a class="nav-link" href="#">Мои заказы</a></li>
+                        <li class="nav-item"><a class="nav-link" href="{{ route('order.all') }}">Мои заказы</a></li>
                         <li class="nav-item"><a class="nav-link" href="{{ route('cabinet') }}">Мой аккаунт</a></li>
                         @if(Auth::user()->role == 'admin')
                             <li class="nav-item dropdown">
@@ -40,7 +40,7 @@
                                 <ul class="dropdown-menu" aria-labelledby="navbarDropdownMenuLink">
                                     <li><a class="dropdown-item" href="{{ route('admin.product.create') }}">Добавить товар</a></li>
                                     <li><a class="dropdown-item" href="{{ route('admin.product.index') }}">Все товары</a></li>
-                                    <li><a class="dropdown-item" href="#">Просмотр заказов</a></li>
+                                    <li><a class="dropdown-item" href="{{ route('order.all', ['myOrder' => 'admin']) }}">Просмотр заказов</a></li>
                                     <li><a class="dropdown-item" href="#">Пользователи</a></li>
                                 </ul>
                             </li>

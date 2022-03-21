@@ -9,6 +9,10 @@ use Illuminate\Support\Facades\Auth;
 
 class OrderController extends Controller
 {
+    /**
+     * @param Request $request
+     * @return \Illuminate\Contracts\Foundation\Application|\Illuminate\Contracts\View\Factory|\Illuminate\Contracts\View\View
+     */
     public function basket(Request $request)
     {
         $products = null;
@@ -20,6 +24,10 @@ class OrderController extends Controller
         return view('users.order.basket', compact('products'));
     }
 
+    /**
+     * @param Request $request
+     * @return \Illuminate\Http\RedirectResponse
+     */
     public function basketPost(Request $request)
     {
         $basket = $request->input('productsIds');
@@ -30,6 +38,10 @@ class OrderController extends Controller
         return back();
     }
 
+    /**
+     * @param Request $request
+     * @return \Illuminate\Http\RedirectResponse
+     */
     public function addBasket(Request $request)
     {
         $basket = [];
@@ -40,6 +52,10 @@ class OrderController extends Controller
         return back();
     }
 
+    /**
+     * @param Request $request
+     * @return \Illuminate\Http\RedirectResponse
+     */
     public function createOrder(Request $request)
     {
         if(!$request->session()->has('basket')) return back()->with('errorCreate', true);
@@ -65,5 +81,38 @@ class OrderController extends Controller
         }
         $request->session()->forget('basket');
         return redirect()->route('welcome');
+    }
+
+    public function orders($myOrder = 'my')
+    {
+        $orders = Order::select('*');
+        if(Auth::user()->role == 'user' || $myOrder == 'my')
+            $orders->where('user_id', Auth::id());
+
+        $orderItems = $orders->get();
+
+        return view('orders.view', ['orders' => $orderItems]);
+    }
+
+    public function cancel(Order $order)
+    {
+        if(Auth::user()->role == 'admin') {
+            $order->status = 'Отклонен';
+            $order->save();
+            return back()->with('success', true);
+        }
+        else if(Auth::id() == $order->user_id) {
+            $order->status = 'Отклонен';
+            $order->save();
+            return back()->with('success', true);
+        }
+        return back()->with('success', false);
+    }
+
+    public function completed(Order $order)
+    {
+        $order->status = 'Завершен';
+        $order->save();
+        return back()->with('completed', true);
     }
 }
