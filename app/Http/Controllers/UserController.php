@@ -52,11 +52,21 @@ class UserController extends Controller
      */
     public function registerPost(RegisterValidation $request)
     {
-        $requests = $request->validated();
-        $requests['password'] = Hash::make($requests['password']);
-        User::create($requests);
+        $validatedData = $request->validated();
+        $validatedData['password'] = Hash::make($validatedData['password']);
+    
+        User::create([
+            'email' => $validatedData['email'],
+            'login' => $validatedData['login'], 
+            'password' => $validatedData['password'],
+            'fullname' => $validatedData['fullname'], 
+            'address' => $validatedData['address'], 
+            'role' => $validatedData['role'], 
+        ]);
+    
         return redirect()->route('login')->with(['register' => true]);
     }
+    
 
     public function cabinet()
     {
@@ -78,8 +88,8 @@ class UserController extends Controller
         return back()->with(['success' => true]);
     }
 
-    /**
-     * Выход из аккаунта пользователя
+   
+     /**
      * @param Request $request
      * @return \Illuminate\Http\RedirectResponse
      */

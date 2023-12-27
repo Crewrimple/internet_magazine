@@ -16,7 +16,7 @@ Route::get('/product/{product}', [ProductController::class, 'firstProduct'])->na
 
 Route::middleware('auth')->group(function() {
 
-    Route::middleware('role:user,admin')->group(function() {
+    Route::middleware('role:admin')->group(function() {
 
         Route::middleware('role:admin')->group(function() {
             Route::group(['prefix' => '/admin', 'as' => 'admin.'], function() {
