@@ -14,7 +14,7 @@ class UserController extends Controller
 {
 
     /**
-     * Форма авторизации
+  
      * @return \Illuminate\Contracts\Foundation\Application|\Illuminate\Contracts\View\Factory|\Illuminate\Contracts\View\View
      */
     public function login()
@@ -23,7 +23,7 @@ class UserController extends Controller
     }
 
     /**
-     * Получения данных с формы авторизации через POST запрос
+
      * @param LoginValidation $request
      * @return \Illuminate\Http\RedirectResponse
      */
@@ -37,7 +37,7 @@ class UserController extends Controller
     }
 
     /**
-     * Форма регистрации
+     
      * @return \Illuminate\Contracts\Foundation\Application|\Illuminate\Contracts\View\Factory|\Illuminate\Contracts\View\View
      */
     public function register()
@@ -46,7 +46,7 @@ class UserController extends Controller
     }
 
     /**
-     * Получения данных с формы регистрации через POST запрос
+   
      * @param RegisterValidation $request
      * @return \Illuminate\Http\RedirectResponse
      */

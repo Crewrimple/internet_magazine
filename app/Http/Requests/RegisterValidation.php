@@ -28,8 +28,12 @@ class RegisterValidation extends FormRequest
             'password' => 'required|min:6|confirmed',
             'email' => 'required|email|unique:users,email',
             'login' => 'required|unique:users',
+<<<<<<< HEAD
             'address' => 'required',
             'role' => 'required|in:user,admin' 
+=======
+          
+>>>>>>> origin/main
         ];
     }
     

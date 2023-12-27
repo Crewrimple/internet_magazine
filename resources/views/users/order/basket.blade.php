@@ -15,7 +15,7 @@
                         <tr>
                             <th scope="col">Картинка</th>
                             <th scope="col">Наименование</th>
-                            <th scope="col">Стоимость за штуку</th>
+                            <th scope="col">Стоимость за штуку</th> 
                             <th scope="col">Количество</th>
                             <th scope="col">Общая стоимость</th>
                         </tr>

@@ -36,6 +36,7 @@
                                 <div id="invalidFullnameFeedback" class="invalid-feedback">{{ $message }}</div>
                             @enderror
                         </div>
+<<<<<<< HEAD
                         <div class="mb-3">
                             <label for="inputAddress" class="form-label">Ваш Адрес:</label>
                             <input type="text" name="address" class="form-control @error('address') is-invalid @enderror"
@@ -51,6 +52,10 @@
                             @error('password')
                                 <div id="invalidPasswordFeedback" class="invalid-feedback">{{ $message }}</div>
                             @enderror
+=======
+                      
+                            @error('password') <div id="invalidPasswordFeedback" class="invalid-feedback">{{ $message }}</div> @enderror
+>>>>>>> origin/main
                         </div>
                         <div class="mb-3">
                             <label for="inputPasswordConfirmation" class="form-label">Повтор пароля:</label>

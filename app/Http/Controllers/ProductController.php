@@ -10,7 +10,7 @@ use Illuminate\Http\Request;
 class ProductController extends Controller
 {
     /**
-     * Display a listing of the resource.
+    
      *
      * @return \Illuminate\Contracts\Foundation\Application|\Illuminate\Contracts\View\Factory|\Illuminate\Contracts\View\View|\Illuminate\Http\Response
      */
@@ -21,7 +21,7 @@ class ProductController extends Controller
     }
 
     /**
-     * Show the form for creating a new resource.
+   
      *
      * @return \Illuminate\Contracts\Foundation\Application|\Illuminate\Contracts\View\Factory|\Illuminate\Contracts\View\View|\Illuminate\Http\Response
      */
@@ -36,7 +36,7 @@ class ProductController extends Controller
     }
 
     /**
-     * Store a newly created resource in storage.
+   
      *
      * @param  \Illuminate\Http\Request  $request
      * @return \Illuminate\Http\Response
@@ -45,9 +45,9 @@ class ProductController extends Controller
     {
         $validate = $request->validated();
         unset($validate['photo_file']);
-        # public/jndbk2fhi2gdih2.jpg
+   
         $photo = $request->file('photo_file')->store('public');
-        # Explode => / => public/jndbk2fhi2gdih2.jpg => ['public', 'jndbk2fhi2gdih2.jpg']
+      
         $validate['photo'] = explode('/', $photo)[1];
 
         Product::create($validate);
@@ -55,8 +55,7 @@ class ProductController extends Controller
     }
 
     /**
-     * Display the specified resource.
-     *
+   
      * @param  \App\Models\Product  $product
      * @return \Illuminate\Contracts\Foundation\Application|\Illuminate\Contracts\View\Factory|\Illuminate\Contracts\View\View|\Illuminate\Http\Response
      */
@@ -71,8 +70,7 @@ class ProductController extends Controller
     }
 
     /**
-     * Show the form for editing the specified resource.
-     *
+     
      * @param  \App\Models\Product  $product
      * @return \Illuminate\Contracts\Foundation\Application|\Illuminate\Contracts\View\Factory|\Illuminate\Contracts\View\View|\Illuminate\Http\Response
      */
@@ -89,8 +87,7 @@ class ProductController extends Controller
     }
 
     /**
-     * Update the specified resource in storage.
-     *
+    
      * @param  \Illuminate\Http\Request  $request
      * @param  \App\Models\Product  $product
      * @return \Illuminate\Http\RedirectResponse
@@ -110,8 +107,7 @@ class ProductController extends Controller
     }
 
     /**
-     * Remove the specified resource from storage.
-     *
+    
      * @param  \App\Models\Product  $product
      * @return \Illuminate\Http\RedirectResponse
      */
