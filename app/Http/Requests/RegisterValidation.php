@@ -28,7 +28,7 @@ class RegisterValidation extends FormRequest
             'password' => 'required|min:6|confirmed',
             'email' => 'required',
             'login' => 'required|unique:users',
-            'address' => 'required'
+          
         ];
     }
 }
