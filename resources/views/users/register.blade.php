@@ -27,14 +27,7 @@
                             <input type="text" name="fullname" class="form-control @error('fullname') is-invalid @enderror" id="inputFullname" aria-describedby="invalidFullnameFeedback" value="{{ old('fullname') }}">
                             @error('fullname') <div id="invalidFullnameFeedback" class="invalid-feedback">{{ $message }}</div> @enderror
                         </div>
-                        <div class="mb-3">
-                            <label for="inputAddress" class="form-label">Ваш Адрес:</label>
-                            <input type="text" name="address" class="form-control @error('address') is-invalid @enderror" id="inputAddress" aria-describedby="invalidAddressFeedback" value="{{ old('address') }}">
-                            @error('address') <div id="invalidAddressFeedback" class="invalid-feedback">{{ $message }}</div> @enderror
-                        </div>
-                        <div class="mb-3">
-                            <label for="inputPassword" class="form-label">Пароль:</label>
-                            <input type="password" name="password" class="form-control @error('password') is-invalid @enderror" id="inputPassword" aria-describedby="invalidPasswordFeedback">
+                      
                             @error('password') <div id="invalidPasswordFeedback" class="invalid-feedback">{{ $message }}</div> @enderror
                         </div>
                         <div class="mb-3">

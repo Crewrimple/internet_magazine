@@ -26,8 +26,12 @@ Route::middleware('auth')->group(function() {
         });
 
         Route::group(['prefix' => '/order', 'as' => 'order.'], function() {
+
+
             Route::get('/basket', [OrderController::class, 'basket'])->name('basket');
-            Route::post('/basket', [OrderController::class, 'basketPost']);
+            Route::post('/basket', [OrderController::class, 'basketPost']);  
+
+            
             Route::get('/addBasket', [OrderController::class, 'addBasket'])->name('addBasket');
             Route::post('/createOrder', [OrderController::class, 'createOrder'])->name('createOrder');
             Route::get('/all/{myOrder?}', [OrderController::class, 'orders'])->name('all');
