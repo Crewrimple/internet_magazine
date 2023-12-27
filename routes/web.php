@@ -39,9 +39,8 @@ Route::middleware('auth')->group(function() {
 
 
             Route::get('/all/{myOrder?}', [OrderController::class, 'orders'])->name('all');
-
-            Route::get('/cancel/{order}', [OrderController::class, 'cancel'])->name('cancel');
             
+            Route::get('/cancel/{order}', [OrderController::class, 'cancel'])->name('cancel');
         });
     });
 
